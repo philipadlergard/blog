@@ -1,0 +1,55 @@
+#dropdownMenu1 {
+/*    width: 61px;
+    height: 61px;*/
+}
+.dropdown-menu {
+    background-color: #333;
+    color: white;
+    margin: 0;
+    font-size: 20px;
+    border-radius: 0px;
+    padding: 0;
+}
+.dropdown-menu li {
+    padding: 0;
+}
+.dropdown-menu > li > a {
+    padding: 15px 15px;
+    color: white;
+    font-size: 15px;
+}
+.dropdown-menu > li > a:hover {
+    background-color: #2c8494;
+    color: white;
+}
+
+.dropdownMenuBtn {
+/*    height: 100%;*/
+    border-radius: 0px;
+    border-color: darkgray;
+    background-color: darkgray;
+    width: 61px;
+    height: 61px;
+}
+
+.btn-primary {
+    background-color: whitesmoke;
+    border-color: #ccc;
+    color: #2c8494;
+}
+.btn-primary:hover {
+    background-color: #2c8494;
+    color: white;
+}
+
+ul {
+    margin-bottom: 0px;
+}
+
+.glyphicon-plus {
+    color: white;
+}
+
+.topicDropdown li:hover {
+    cursor: pointer;
+}
