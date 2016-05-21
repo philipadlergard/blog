@@ -1,0 +1,65 @@
+<div class="addpost-container content-container" ng-if="isAuthorized">
+    <h3>Skriv inlägg</h3>
+    
+    <form name="postForm" ng-submit="submit(postForm.$valid)" novalidate>
+        
+        <div class="form-group" ng-class="{ 'has-error' : postForm.header.$invalid && submitted }">
+            <label>Rubrik</label><br>
+            <input type="text" name="header" class="form-control" ng-model="$parent.header" required>
+            <p ng-show="postForm.$parent.header.$invalid && submitted" class="help-block">Rubrik måste fyllas i.</p>
+        </div>
+        
+        <div class="form-group" ng-class="{ 'has-error' : postForm.url.$invalid && submitted }">
+            <label>Länk url</label><br>
+            <input type="text" name="url" class="form-control" ng-model="$parent.url" required>
+            <p ng-show="postForm.$parent.url.$invalid && submitted" class="help-block">Url måste fyllas i.</p>
+        </div>
+        
+        <div class="form-group" ng-class="{ 'has-error' : postForm.text.$invalid && submitted }">
+            <label>Text</label><br>
+            <input type="text" name="text" class="form-control" ng-model="$parent.text" required>
+            <p ng-show="postForm.$parent.text.$invalid && submitted" class="help-block">Text måste fyllas i.</p>
+        </div> 
+        
+<!--        <div class="form-group" ng-class="{ 'has-error' : postForm.text.$invalid && submitted }">
+            <label for="singleSelect"> Välj ämne </label><br>
+            <select name="singleSelect" ng-model="$parent.topic">
+              <option ng-repeat="topic in $parent.topics" value="{{topic.Name}}">{{topic.Name}}</option>
+            </select>
+        </div>-->
+        <div class="form-group" >
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle topicDropdownBtn" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true">Välj ämne
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu topicDropdown" aria-labelledby="dropdownMenu1">
+              <li ng-repeat="topic in $parent.topics"><a ng-click="topicSelected(topic.Name)">{{topic.Name}}</a></li>
+            </ul>
+          </div>
+            {{parent.topic}}
+        </div>
+        <button type="submit" class="btn btn-primary">Lägg till</button>
+    </form>
+    {{response}}
+</div>
+
+<div class="addpost-container content-container" ng-if="!isAuthorized">
+    <h3>Ange användarnamn och lösenord</h3>
+    <form name="authorizeForm" ng-submit="authorize(authorizeForm.$valid)" novalidate>
+        
+        <div class="form-group" ng-class="{ 'has-error' : authorizeForm.userName.$invalid && submitted }">
+            <label>Användarnamn</label><br>
+            <input type="text" name="userName" class="form-control" ng-model="$parent.userName" required>
+            <p ng-show="authorizeForm.$parent.userName.$invalid && submitted" class="help-block">Användarnamn måste anges</p>
+        </div>
+        
+        <div class="form-group" ng-class="{ 'has-error' : authorizeForm.password.$invalid && submitted }">
+            <label>Lösenord</label><br>
+            <input type="text" name="password" class="form-control" ng-model="$parent.password" required>
+            <p ng-show="authorizeForm.$parent.password.$invalid && submitted" class="help-block">Lösenord måste anges</p>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">OK</button>
+    </form>
+    {{response}}
+</div>
